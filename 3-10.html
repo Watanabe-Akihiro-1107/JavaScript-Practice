@@ -1,0 +1,27 @@
+
+
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>サンプルHTML</title>
+  </head>
+  <body>
+  	<section>
+  		<h1>やることリスト</h1>
+  		<ul id ="list">
+  		</ul>
+  	</section>
+      <script>
+      		'use strict';
+
+      		let todo = ['デザインカンプ完成','データ整理','勉強会申し込み','牛乳買う'];
+      		todo.push('歯医者に行く');
+      		for(let item of todo){
+      			const li = `<li>${item}</li>`;
+      			// バッククォートの出し方を見落として小一時間ロスした・・・出し方はSHIFT + @　で出る
+      			document.getElementById('list').insertAdjacentHTML('beforeend',li);
+      		}
+      	</script>
+  </body>
+</html>
