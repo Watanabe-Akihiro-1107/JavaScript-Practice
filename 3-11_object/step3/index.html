@@ -1,0 +1,18 @@
+<section>
+	<table style='border:1px solid black;'>
+		<tr>
+			<td id='title'></td>
+			<td id='price'></td>
+			<td id='stock'></td>
+		</tr>
+	</table>
+</section>
+
+<script>
+	'use strict';
+
+	let jsbook = {title:'JavaSprict入門',price:'3500', stock:'3'};
+	document.getElementById('title').textContent = jsbook.title;
+	document.getElementById('price').textContent = jsbook.price + '円';
+	document.getElementById('stock').textContent = jsbook.stock;
+</script>
