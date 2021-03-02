@@ -1,0 +1,46 @@
+<section>
+	<h2><span>知ってました？</span><br>
+	2025年大阪万博開催まで</h2>
+	<p class = 'timer'></p>あと<span id = 'day'></span>日<span id ='hour'></span>時間<span id ='min'></span>分<span id ='sec'></span>秒</h2>
+
+</section>
+
+<script>
+	'use strict';
+
+	// 変数dueは目的の時間です。
+	function countdown(due){
+		const now = new Date();
+		// Dateオブジェクトを初期化し、定数nowに代入している。Dateオブジェクトは日時を指定していないので現在の時刻がセットされる
+
+		const rest = due.getTime() - now.getTime();
+		// 変数dueから定数nowの差し引き、定数restに代入している。
+		const sec = Math.floor(rest / 1000) % 60;
+		const min = Math.floor(rest /1000 / 60)% 60;
+		const hours = Math.floor(rest /1000 / 60 / 60)% 24;
+		const days = Math.floor(rest /1000 / 60 / 60 /24);
+		const count = [days, hours, min, sec];
+
+		return count;
+	}
+
+	const goal = new Date(2025,4,3);
+	function recalc(){
+		const counter = countdown(goal);
+		document.getElementById('day').textContent = counter[0];
+		document.getElementById('hour').textContent = counter[1];
+		document.getElementById('min').textContent = String(counter[2]).padStart(2, '0');
+		document.getElementById('sec').textContent = String(counter[3]).padStart(2, '0');
+		reflesh();
+		// ↑ここで上に戻る
+	}
+
+	function reflesh(){
+		setTimeout(recalc, 1000);
+		// 1秒後にrecalcファンクションが呼び出されるという関数です
+		// Timeoutメソッドは「待ち時間後」に「ファンクション」を一度だけ呼び出すメソッドです。パラメータは2つ必要！！
+	}
+
+	recalc();
+</script>
+
