@@ -1,0 +1,45 @@
+<section>
+	<p>いまから<span id ='timer'></span>以内に注文すると50%オフ！</p>
+</section>
+
+<script>
+	'use strict';
+
+	// 変数dueは目的の時間です。
+	function countdown(due){
+		const now = new Date();
+		// Dateオブジェクトを初期化し、定数nowに代入している。Dateオブジェクトは日時を指定していないので現在の時刻がセットされる
+
+		const rest = due.getTime() - now.getTime();
+		// 変数dueから定数nowの差し引き、定数restに代入している。
+		const sec = Math.floor(rest / 1000) % 60;
+		const min = Math.floor(rest /1000 / 60)% 60;
+		const hours = Math.floor(rest /1000 / 60 / 60)% 24;
+		const days = Math.floor(rest /1000 / 60 / 60 /24);
+		const count = [days, hours, min, sec];
+
+		return count;
+	}
+
+	let goal = new Date();
+	goal.setHours(23);
+	goal.setMinutes(59);
+	goal.setSeconds(59);
+
+	function recalc(){
+		const counter = countdown(goal);
+		const time = `${counter[1]}時間${counter[2]}分${counter[3]}秒`;
+		document.getElementById('timer').textContent = time;
+		reflesh();
+		// ↑ここで上に戻る
+	}
+
+	function reflesh(){
+		setTimeout(recalc, 1000);
+		// 1秒後にrecalcファンクションが呼び出されるという関数です
+		// Timeoutメソッドは「待ち時間後」に「ファンクション」を一度だけ呼び出すメソッドです。パラメータは2つ必要！！
+	}
+
+	recalc();
+</script>
+
