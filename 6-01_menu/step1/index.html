@@ -1,0 +1,59 @@
+<section>
+	<div class="sidebar">
+		<h2>サポートページ</h2>
+
+		<div class="submenu">
+			<h3>１、初めて使う時</h3>
+			<ul class ="hidden">
+				<li><a href = "">- 概要</li>
+				<li><a href = "">- インストールする</li>
+				<li><a href = "">- アカウントを登録する</li>
+				<li><a href = "">- アンインストールする</li>
+			</ul>
+		</div>
+
+		<div class="submenu">
+			<h3>２、基本的な使い方</h3>
+			<ul class ="hidden">
+				<li><a href = "">- 基本的な操作方法</li>
+				<li><a href = "">- 元の状態に復元する</li>
+				<li><a href = "">- 機能拡張プラグインを追加する</li>
+			</ul>
+		</div>
+
+	</div>
+</section>
+
+<style>
+	.submenu h3{
+		margin:0 0 1em 0;
+		font-size:16px;
+		cursor:pointer;
+		color:#5e78c1;
+	}
+
+	.submenu h3:hover{
+		color:#b04188;
+		text-decoration:underline;
+	}
+
+	.submenu ul{
+		margin:0 0 1em 0;
+		list-style-type:none;
+		font-size:14px;
+	}
+	.hidden{
+		display:none;
+	}
+</style>
+
+<script src="../../_common/scripts/jquery-3.4.1.min.js"></script>
+<script>
+	'use strict';
+
+	$(document).ready(function(){
+		$('.submenu h3').on('click', function(){
+			$(this).next().toggleClass('hidden');
+		});
+	});
+</script>
