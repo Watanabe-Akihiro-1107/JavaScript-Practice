@@ -35,7 +35,9 @@
 'use strict';
 
 function success(pos) {
+	// 変数posにはgetCurrentPositionメソッドによって取得された”位置情報オブジェクト”が保存されている！
 	const lat = pos.coords.latitude;
+	// posパラメータに保存されている位置情報オブジェクトのcoordsプロパティのlatitudeプロパティ。
 	const lng = pos.coords.longitude;
 	const accuracy = pos.coords.accuracy;
 
