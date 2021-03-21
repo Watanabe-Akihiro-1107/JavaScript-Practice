@@ -1,4 +1,5 @@
 'use strict';
+
 // geolocation
 function success(pos){
 	ajaxRequest(pos.coords.latitude, pos.coords.longitude);
@@ -29,6 +30,6 @@ function ajaxRequest(lat,long){
 		console.log(data);
 	})
 	.fail(function(){
-		console.log('$.ajax failed!')
+		console.log('$.ajax failed!');
 	})
 }
